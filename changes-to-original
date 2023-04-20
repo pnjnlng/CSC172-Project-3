@@ -1,0 +1,15 @@
+Cache commonly used values. In the getEdgeLength() method, the code repeatedly gets the values of x1, x2, y1, and y2 from the nodeMap for the same two nodes. This can be optimized by caching these values in the Edge class when the edge is created.
+
+To cache the commonly used values in the Edge class, we need to modify the Edge constructor to compute and store the edge length when the edge is created. 
+Then, in the getEdgeLength() method of the Graph class, we can simply retrieve the precomputed length value from the Edge object instead of recomputing it 
+every time.
+
+And here's the modified Graph class that uses the cached length values:
+
+Avoid unnecessary object creation. In the getPath() method, a new ArrayList is created every time the method is called. Instead, you can create the 
+ArrayList once in the constructor and reuse it every time the method is called.
+
+Now, instead of creating a new ArrayList object every time the getPath() method is called, we create it once in the constructor and clear it and reuse it 
+every time the method is called. This should reduce the number of unnecessary object creations and improve the efficiency of the code.
+
+
