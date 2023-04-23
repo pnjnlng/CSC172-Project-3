@@ -53,5 +53,4 @@ public class Edge {
         double diffy = (y1 - y2) * 68.99;
         length = Math.sqrt(Math.pow(diffx, 2) + Math.pow(diffy, 2));
     }
-	
 }

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
+import java.awt.geom.Path2D;
 import java.io.*;
 import java.util.*;
 public class proj3 extends JComponent {
@@ -59,17 +60,17 @@ public class proj3 extends JComponent {
         for(Edge e:graph.edges){
         	if((graph.nodes.get(e.getFrom()).isHighlighted())&&(graph.nodes.get(e.getTo()).isHighlighted())){
         		g2.setColor(Color.BLUE);
-        		g2.setStroke(new BasicStroke(2.5f,
+        		g2.setStroke(new BasicStroke(3.0f,
                         BasicStroke.CAP_BUTT,
                         BasicStroke.JOIN_MITER,
-                        10.0f));
+                        12.0f));
         	}
         	else{
         		g2.setColor(Color.BLACK);
-        		g2.setStroke(new BasicStroke(1.2f,
+        		g2.setStroke(new BasicStroke(1.5f,
                         BasicStroke.CAP_BUTT,
                         BasicStroke.JOIN_MITER,
-                        10.0f));
+                        11.0f));
         	}
         	double x1 = (720/(maxX-minX))*((graph.nodeCoordinates.get(e.getFrom())[0])-minX)+100;
         	double x2 = (720/(maxX-minX))*((graph.nodeCoordinates.get(e.getTo())[0])-minX)+100;
@@ -83,7 +84,7 @@ public class proj3 extends JComponent {
         return new Dimension(1080,1080);
     }
     public static void main(String[] args){
-        String fileName = "nys.txt";
+        String fileName = "ur.txt";
     	proj3 test1 = new proj3(fileName);
     	test1.graph.modifyGraph();
         if(Arrays.asList(args).contains("show")){
@@ -117,9 +118,17 @@ public class proj3 extends JComponent {
                 System.out.println("Total distance: "+ test1.graph.nodes.get(to).getDistance()+" miles.");
             }
         }
-    	//System.out.println(test1.graph.getShortestPath("CSB", "GOERGEN-ATHLETIC"));
-    	//System.out.printf("%.4f",test1.graph.nodes.get("GOERGEN-ATHLETIC").getDistance());
+    	System.out.println(test1.graph.getShortestPath("CSB", "GOERGEN-ATHLETIC"));
+    	System.out.printf("%.4f",test1.graph.nodes.get("GOERGEN-ATHLETIC").getDistance());
         System.out.println("show");
+        /* Test Run. Uncomment to show map of input file.
+        JFrame frame = new JFrame("test");
+        frame.add(test1);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        */
         JFrame frame = new JFrame("test");
         frame.add(test1);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
