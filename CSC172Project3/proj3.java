@@ -84,6 +84,15 @@ public class proj3 extends JComponent {
     }
     public static void main(String[] args){
         String fileName = "ur.txt";
+        if(Arrays.asList(args).contains("ur.txt")){
+            fileName = "ur.txt";
+        }
+        if(Arrays.asList(args).contains("monroe.txt")){
+            fileName = "monroe.txt";
+        }
+        if(Arrays.asList(args).contains("nys.txt")){
+            fileName = "nys.txt";
+        }
     	proj3 test1 = new proj3(fileName);
     	test1.graph.modifyGraph();
         if(Arrays.asList(args).contains("show")){
