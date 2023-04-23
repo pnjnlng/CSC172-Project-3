@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
-import java.awt.geom.Path2D;
 import java.io.*;
 import java.util.*;
 public class proj3 extends JComponent {
@@ -104,6 +103,7 @@ public class proj3 extends JComponent {
             frame.add(test1);
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame.pack();
+            frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         }
         else if(Arrays.asList(args).contains("directions")){
@@ -118,9 +118,6 @@ public class proj3 extends JComponent {
                 System.out.println("Total distance: "+ test1.graph.nodes.get(to).getDistance()+" miles.");
             }
         }
-    	System.out.println(test1.graph.getShortestPath("CSB", "GOERGEN-ATHLETIC"));
-    	System.out.printf("%.4f",test1.graph.nodes.get("GOERGEN-ATHLETIC").getDistance());
-        System.out.println("show");
         /* Test Run. Uncomment to show map of input file.
         JFrame frame = new JFrame("test");
         frame.add(test1);
@@ -129,12 +126,6 @@ public class proj3 extends JComponent {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         */
-        JFrame frame = new JFrame("test");
-        frame.add(test1);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
     }
 }
 
