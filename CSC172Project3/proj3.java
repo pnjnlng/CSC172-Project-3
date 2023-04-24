@@ -100,15 +100,15 @@ public class proj3 extends JComponent {
                 String from = args[3];
                 String to = args[4];
                 ArrayList<String> temp = (ArrayList<String>) test1.graph.getShortestPath(from, to);
-                if(temp.size()==0){
-                	System.out.println("No path between "+from+" and "+to+ ".");
+                if(temp.size() == 0){
+                	System.out.println("No path between " + from + " and " + to +  ".");
                 }
                 else{
-                	System.out.println("Shortest path: "+temp);
-                    System.out.println("Total distance: "+ test1.graph.nodes.get(to).getDistance()+" miles.");
+                	System.out.println("Shortest path: " + temp);
+                    System.out.println("Total distance: " + test1.graph.nodes.get(to).getDistance() + " miles.");
                 }
             }
-            JFrame frame = new JFrame("test");
+            JFrame frame = new JFrame("Street Mapping");
             frame.add(test1);
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame.pack();
@@ -119,16 +119,16 @@ public class proj3 extends JComponent {
             String from = args[2];
             String to = args[3];
             ArrayList<String> temp = (ArrayList<String>) test1.graph.getShortestPath(from, to);
-            if(temp.size()==0){
-            	System.out.println("No path between "+from+" and "+to+ ".");
+            if(temp.size() == 0){
+            	System.out.println("No path between " + from + " and " + to + ".");
             }
             else{
-            	System.out.println("Shortest path: "+temp);
-                System.out.println("Total distance: "+ test1.graph.nodes.get(to).getDistance()+" miles.");
+            	System.out.println("Shortest path: " + temp);
+                System.out.println("Total distance: " + test1.graph.nodes.get(to).getDistance() + " miles.");
             }
         }
         /* Test Run. Uncomment to show map of input file.
-        JFrame frame = new JFrame("test");
+        JFrame frame = new JFrame("Street Mapping");
         frame.add(test1);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
