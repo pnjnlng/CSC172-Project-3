@@ -17,12 +17,7 @@ public class proj3 extends JComponent {
             BufferedReader br = new BufferedReader(new FileReader(new File(file)));
             String input;
             while((input=br.readLine())!=null) {
-                StringTokenizer tokenizedInput = new StringTokenizer(input);
-                //List to hold each line as its split up
-                ArrayList<String> splitParts = new ArrayList<String>();
-                while((tokenizedInput.hasMoreTokens()) && (tokenizedInput != null)) {
-                    splitParts.add(tokenizedInput.nextToken());
-                }
+                ArrayList<String> splitParts = new ArrayList<>(Arrays.asList(input.split("\\s+")));
                 String type = splitParts.get(0);
                 String id = splitParts.get(1);
                 String strLatitude = splitParts.get(2);
@@ -58,6 +53,9 @@ public class proj3 extends JComponent {
 			e.printStackTrace();
 		}
     }
+    public double returnMath(double PositionCalc, double LocationCalc, double hundred){
+        return (PositionCalc) * (LocationCalc) + hundred;
+    }
     public void paintComponent(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
         for(Edge e : graph.edges){
@@ -80,10 +78,10 @@ public class proj3 extends JComponent {
             double yFromCalc = ((graph.nodeCoordinates.get(e.getFrom())[1]) - maxY);
             double yToCalc = ((graph.nodeCoordinates.get(e.getTo())[1]) - maxY);
             //Math
-        	double x1 = (xCalc) * (xFromCalc) + hundred;
-        	double x2 = (xCalc) * (xToCalc) + hundred;
-        	double y1 = (yCalc) * (yFromCalc) + hundred;
-        	double y2 = (yCalc) * (yToCalc) + hundred;
+        	double x1 = returnMath(xCalc, xFromCalc, hundred);
+        	double x2 = returnMath(xCalc, xToCalc, hundred);
+        	double y1 = returnMath(yCalc, yFromCalc, hundred);
+        	double y2 = returnMath(yCalc, yToCalc, hundred);
         	Line2D line = new Line2D.Double(x1, y1, x2, y2);
         	g2.draw(line);
         }
