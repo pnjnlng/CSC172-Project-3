@@ -63,11 +63,11 @@ public class proj3 extends JComponent {
             boolean toHighlight = (graph.nodes.get(e.getTo()).isHighlighted());
         	if((fromHighlight) && (toHighlight)){
         		g2.setColor(Color.BLUE);
-        		g2.setStroke(new BasicStroke(3.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER, 12.0f));
+        		g2.setStroke(new BasicStroke(3.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 12.0f));
         	}
         	else{
         		g2.setColor(Color.BLACK);
-        		g2.setStroke(new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER, 11.0f));
+        		g2.setStroke(new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 11.0f));
         	}
             //Math Variables
             double hundred = 100;
