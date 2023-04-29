@@ -24,7 +24,7 @@ public class proj3 extends JComponent {
                 String strLongitude = splitParts.get(3);
                 //If line starts with i, its an intersection, followed by unique string ID, and decimal representation of longitude and latitude
                 if(type.equals("i")) {
-                    //Add unique string ID, and decimal representatin of longitude and latitude
+                    //Add unique string ID, and decimal representation of longitude and latitude
                     graph.addNode(id, (Double.parseDouble(splitParts.get(2))), (Double.parseDouble(splitParts.get(3))));
                     //If statements to set max or min height to inputted intersection
                     if(minX > (Double.parseDouble(splitParts.get(3)))) {
@@ -40,7 +40,7 @@ public class proj3 extends JComponent {
 	                	minY = (Double.parseDouble(splitParts.get(2)));
 	                }
 				}
-                //If line starts with r, its an road, followed by a unique string ID, and the two intersections it connects
+                //If line starts with r, its a road, followed by a unique string ID, and the two intersections it connects
 				else if(type.equals("r")) {
 					graph.addEdge(id, strLatitude, strLongitude);
 				}
@@ -82,6 +82,7 @@ public class proj3 extends JComponent {
         	double x2 = returnMath(xCalc, xToCalc, hundred);
         	double y1 = returnMath(yCalc, yFromCalc, hundred);
         	double y2 = returnMath(yCalc, yToCalc, hundred);
+            //Draw lines
         	Line2D line = new Line2D.Double(x1, y1, x2, y2);
         	g2.draw(line);
         }
